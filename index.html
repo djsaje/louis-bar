@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080806">
+<title>LOUIS BAR | PREMIUM BAR</title>
+<style>
+:root{--bg:#070706;--gold:#d8ad58;--gold2:#f2d28c;--text:#f7f1e7;--muted:#c9c1b5;--line:rgba(214,173,88,.55)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:"Noto Sans KR",Arial,sans-serif}a{color:inherit;text-decoration:none}button{font:inherit}
+header{height:74px;background:#070706;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,68px);gap:24px;position:relative;z-index:5}
+.brand{display:flex;align-items:center;gap:13px;color:var(--gold2);min-width:max-content}.monogram{font-family:Georgia,serif;font-size:45px;font-style:italic;line-height:1}.brand-name{font:26px Georgia,serif;letter-spacing:.15em}.brand-sub{font-size:9px;letter-spacing:.34em;text-align:center;margin-top:4px}
+nav{display:flex;align-items:center;gap:clamp(14px,2.8vw,38px);font-size:12px;color:#d2ccc2}nav a{padding:12px 0;transition:color .2s}nav a:hover,nav a.active{color:var(--gold2)}
+.pill{border:1px solid var(--gold);border-radius:10px;padding:10px 19px;color:var(--gold2);white-space:nowrap;font-size:13px}
+.hero{min-height:318px;position:relative;display:flex;align-items:center;padding:45px clamp(24px,5.5vw,70px);border-bottom:1px solid var(--line);background:linear-gradient(90deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.65) 31%,rgba(0,0,0,.04) 72%),url("assets/hero.jpg") center 48%/cover no-repeat}
+.hero-copy{max-width:520px}.eyebrow{font:18px Georgia,serif;letter-spacing:.17em;color:var(--gold2)}h1{font:clamp(42px,6vw,72px) Georgia,serif;letter-spacing:.12em;margin:4px 0 10px;color:#f4d391}p{line-height:1.7}.hero p{font-size:16px;margin:0 0 22px}.outline-btn{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--gold);border-radius:18px;padding:10px 23px;color:var(--gold2);font-size:13px;transition:background .2s}.outline-btn:hover{background:rgba(216,173,88,.13)}
+.features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:20px clamp(20px,4vw,50px);border-bottom:1px solid var(--line)}
+.feature{min-height:228px;border:1px solid var(--line);position:relative;display:flex;align-items:stretch;background:#111;overflow:hidden}
+.feature:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.56) 48%,rgba(0,0,0,.08));z-index:0}
+.feature.menu{background:url("assets/menu-card.jpg") center/cover}.feature.bartender{background:url("assets/bartender-card.jpg") center/cover}.feature.about{background:url("assets/about-card.jpg") center/cover}
+.feature-copy{position:relative;z-index:1;padding:20px;max-width:80%}.section-en{font:18px Georgia,serif;color:var(--gold2);letter-spacing:.05em}.feature h2{font-size:23px;font-weight:500;margin:5px 0 14px}.feature p{font-size:13px;color:#e2ddd4;margin:0 0 22px}.feature .outline-btn{padding:8px 16px;border-radius:10px;font-size:11px}
+.gallery{padding:27px clamp(20px,4vw,50px) 20px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:165px 1fr;gap:18px;align-items:center}.gallery-title h2{font:22px Georgia,serif;color:var(--gold2);letter-spacing:.1em;margin:0 0 4px}.gallery-title strong{font-size:24px;font-weight:500}.gallery-title p{font-size:12px;color:#d4cec4;margin:12px 0}
+.gal-controls{display:flex;gap:10px;margin-top:15px}.round{width:40px;height:40px;border:1px solid var(--gold);border-radius:50%;background:transparent;color:var(--gold2);font-size:23px;cursor:pointer}
+.gallery-track{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;padding:2px 0 12px}.gallery-track::-webkit-scrollbar{display:none}.gallery-track:active{cursor:grabbing}.gallery-track img{height:174px;width:auto;min-width:120px;max-width:240px;object-fit:cover;border:1px solid var(--line);scroll-snap-align:start;cursor:zoom-in;transition:filter .2s}.gallery-track img:hover{filter:brightness(1.15)}.dots{display:flex;justify-content:center;gap:12px;grid-column:2}.dot{width:8px;height:8px;border-radius:50%;background:#4c4b48}.dot:first-child{background:var(--gold2)}
+.official{margin:18px clamp(20px,3vw,38px);min-height:200px;border:1px solid var(--gold);outline:1px solid rgba(216,173,88,.25);outline-offset:-6px;background:linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.72) 67%,rgba(0,0,0,.12)),url("assets/official-bg.jpg") center/cover;display:grid;grid-template-columns:26% 1fr;align-items:center;padding:22px clamp(20px,4vw,48px);gap:30px}
+.official-brand{text-align:center;border-right:1px solid var(--line);padding:12px 20px;color:var(--gold2)}.official-brand .monogram{font-size:48px}.official-brand .brand-name{font-size:23px}.tagline{font:10px Georgia,serif;letter-spacing:.18em;margin-top:18px}
+.info h2{font-size:19px;color:var(--gold2);font-weight:500;margin:0 0 14px}.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 26px}.info-item{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center}.ico{width:28px;height:28px;border-radius:50%;background:var(--gold2);color:#111;display:grid;place-items:center;font-weight:bold}.info-item b{display:block;color:var(--gold2);font-size:12px;font-weight:500}.info-item span{font-size:12px;color:#f1ece3}
+footer{border-top:1px solid var(--line);min-height:64px;padding:18px 20px;display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;color:#aaa49b;font-size:10px;text-align:center}.sep{color:var(--gold)}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:20;display:none;align-items:center;justify-content:center;padding:30px}.lightbox.open{display:flex}.lightbox img{max-width:90vw;max-height:86vh;object-fit:contain;border:1px solid var(--gold)}.close{position:absolute;top:18px;right:25px;border:1px solid var(--gold);background:#111;color:var(--gold2);border-radius:50%;width:42px;height:42px;font-size:24px;cursor:pointer}
+@media(max-width:850px){header{height:auto;min-height:72px;flex-wrap:wrap;padding:12px 20px}.brand-name{font-size:20px}.monogram{font-size:36px}nav{order:3;width:100%;overflow-x:auto;gap:23px;padding:2px 0 4px}nav a{white-space:nowrap}.pill{font-size:11px;padding:8px 12px}.hero{min-height:300px}.features{grid-template-columns:1fr}.feature{min-height:190px}.feature-copy{max-width:70%}.gallery{grid-template-columns:1fr;gap:12px}.gallery-title{display:grid;grid-template-columns:1fr auto;align-items:center}.gallery-title p{grid-column:1}.gal-controls{grid-column:2;grid-row:1/3}.gallery-track img{height:155px}.dots{grid-column:1}.official{grid-template-columns:1fr;gap:18px}.official-brand{border-right:0;border-bottom:1px solid var(--line);padding-bottom:18px}.info-grid{gap:14px}}
+@media(max-width:480px){.hero{padding:34px 22px;min-height:270px;background-position:58% center}.eyebrow{font-size:15px}h1{font-size:39px;letter-spacing:.06em}.hero p{font-size:13px}.feature-copy{max-width:88%;padding:17px}.feature h2{font-size:21px}.info-grid{grid-template-columns:1fr}.official{padding:24px 18px}.gallery-track img{height:135px}.footer{gap:8px}}
+</style>
+</head>
+<body>
+<header>
+<a class="brand" href="#home" aria-label="Louis Bar home"><span class="monogram">ℒ</span><span><div class="brand-name">LOUIS BAR</div><div class="brand-sub">PREMIUM BAR</div></span></a>
+<nav aria-label="주 메뉴">
+<a class="active" href="#home">HOME</a><a href="#about">ABOUT</a><a href="#menu">MENU</a><a href="#bartender">BARTENDER</a><a href="#gallery">GALLERY</a><a href="#board">BOARD</a>
+</nav>
+<a class="pill" href="#official">공식정보　●</a>
+</header>
+<main>
+<section class="hero" id="home"><div class="hero-copy"><div class="eyebrow">Premium Bar</div><h1>LOUIS BAR</h1><p>좋은 술, 좋은 사람, 그리고 특별한 시간<br>루이스바에서 만나는 최고의 순간</p><a class="outline-btn" href="#about">자세히 보기 <span>→</span></a></div></section>
+<section class="features">
+<article class="feature menu" id="menu"><div class="feature-copy"><div class="section-en">MENU</div><h2>메뉴판</h2><p>다양한 주류와 안주로<br>최고의 맛을 선사합니다.</p><a class="outline-btn" href="#official">메뉴 보러가기　→</a></div></article>
+<article class="feature bartender" id="bartender"><div class="feature-copy"><div class="section-en">BARTENDER</div><h2>찰리 바텐더</h2><p>오랜 경험과 노하우로<br>최고의 한 잔을 만들어드립니다.</p><a class="outline-btn" href="#official">자세히 보기　→</a></div></article>
+<article class="feature about" id="about"><div class="feature-copy"><div class="section-en">ABOUT</div><h2>루이스바 이야기</h2><p>루이스바는 단순한 술집이 아닌,<br>사람과 사람이 만나는 특별한 공간입니다.<br>좋은 술, 좋은 사람, 그리고<br>잊지 못할 추억을 만들어갑니다.</p><a class="outline-btn" href="#official">자세히 보기　→</a></div></article>
+</section>
+<section class="gallery" id="gallery">
+<div class="gallery-title"><div><h2>GALLERY</h2><strong>갤러리</strong><p>루이스바의 분위기와<br>다양한 순간들을 사진으로 만나보세요.</p></div><div class="gal-controls"><button class="round" id="prev" aria-label="이전 사진">‹</button><button class="round" id="next" aria-label="다음 사진">›</button></div></div>
+<div class="gallery-track" id="track">
+<img src="assets/gallery-1.jpg" alt="루이스바 라운지" tabindex="0"><img src="assets/gallery-2.jpg" alt="칵테일" tabindex="0"><img src="assets/gallery-3.jpg" alt="프라이빗 라운지" tabindex="0"><img src="assets/gallery-4.jpg" alt="위스키 진열" tabindex="0"><img src="assets/gallery-5.jpg" alt="위스키 잔" tabindex="0"><img src="assets/gallery-6.jpg" alt="도시 야경" tabindex="0">
+</div><div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+</section>
+<section class="official" id="official">
+<div class="official-brand"><div class="monogram">ℒ</div><div class="brand-name">LOUIS BAR</div><div class="brand-sub">PREMIUM BAR</div><div class="tagline">GOOD DRINKS · GOOD PEOPLE · GOOD TIME</div></div>
+<div class="info"><h2>루이스바 공식 정보</h2><div class="info-grid">
+<div class="info-item"><div class="ico">⌖</div><div><b>주소</b><span>서울특별시 강남구 테헤란로 421번지 지하 1층</span></div></div>
+<div class="info-item"><div class="ico">☎</div><div><b>전화번호</b><span>010-8876-3355</span></div></div>
+<div class="info-item"><div class="ico">◷</div><div><b>영업시간</b><span>오후 7시 ~ 오전 7시</span></div></div>
+<div class="info-item"><div class="ico">T</div><div><b>카카오톡 ID</b><span>bar3355</span></div></div>
+<div class="info-item"><div class="ico">i</div><div><b>추가 안내</b><span>문의해주세요.</span></div></div>
+</div></div></section>
+</main>
+<footer><span>LOUIS BAR</span><span class="sep">|</span><span>서울특별시 강남구 테헤란로 421번지 지하 1층</span><span class="sep">|</span><span>010-8876-3355</span><span class="sep">|</span><span>카카오톡 ID : bar3355</span><span class="sep">|</span><span>문의해주세요.</span></footer>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="확대된 갤러리 사진"><button class="close" id="close" aria-label="닫기">×</button><img id="large" alt="확대된 갤러리 사진"></div>
+<script>
+const track=document.getElementById('track');
+document.getElementById('prev').addEventListener('click',()=>track.scrollBy({left:-260,behavior:'smooth'}));
+document.getElementById('next').addEventListener('click',()=>track.scrollBy({left:260,behavior:'smooth'}));
+let down=false,startX=0,left=0;
+track.addEventListener('pointerdown',e=>{down=true;startX=e.clientX;left=track.scrollLeft;track.setPointerCapture(e.pointerId)});
+track.addEventListener('pointermove',e=>{if(down)track.scrollLeft=left-(e.clientX-startX)});
+track.addEventListener('pointerup',()=>down=false);track.addEventListener('pointercancel',()=>down=false);
+const box=document.getElementById('lightbox'),large=document.getElementById('large');
+track.querySelectorAll('img').forEach(img=>{img.addEventListener('click',()=>{large.src=img.src;large.alt=img.alt;box.classList.add('open')});img.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();img.click()}})});
+document.getElementById('close').addEventListener('click',()=>box.classList.remove('open'));
+box.addEventListener('click',e=>{if(e.target===box)box.classList.remove('open')});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')box.classList.remove('open')});
+</script>
+</body></html>
